@@ -46,7 +46,24 @@ func apparat(matrix *[][]float64, vector []float64, size uint64) ([]float64, err
 	return x, nil
 }
 
-func main() {
+func test2() {
+	mat := [][]float64{
+		{2, 1},
+		{1, 2},
+	}
+	b := []float64{5, 4}
+	size := uint64(2)
+
+	x, err := apparat(&mat, b, size)
+	if err != nil {
+		fmt.Printf("Unknown shit happened inside")
+	} else {
+		expected := []float64{2, 1}
+		fmt.Printf("expected: %v\nreceived: %v\n", expected, x)
+	}
+}
+
+func test3() {
 	mat := [][]float64{
 		{2, 1, 0},
 		{1, 3, 1},
@@ -62,4 +79,8 @@ func main() {
 		expected := []float64{1, 2, 3}
 		fmt.Printf("expected: %v\nreceived: %v\n", expected, x)
 	}
+}
+
+func main() {
+	test2()
 }
