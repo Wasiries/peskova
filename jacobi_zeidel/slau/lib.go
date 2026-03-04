@@ -36,13 +36,16 @@ func swap[T any](first *[]T, second *[]T) {
 	*first, *second = *second, *first
 }
 
-func jacobi(matrix *[][]float64, vector []float64, size uint64, iterations uint64) ([]float64, error) {
+func Jacobi(matrix *[][]float64, vector []float64, size uint64, iterations uint64) ([]float64, error) {
 	var x []float64 = make([]float64, size)
 	if uint64(len(vector)) != size {
 		return nil, VectorNotMatch{}
 	}
 	if uint64(len((*matrix))) != size {
 		return nil, MatrixNotMatch{}
+	}
+	if size == 0 {
+		return x, nil
 	}
 	var x_next []float64 = make([]float64, size)
 	for iteration := uint64(0); iteration < iterations; iteration++ {
@@ -67,13 +70,16 @@ func jacobi(matrix *[][]float64, vector []float64, size uint64, iterations uint6
 	return x, nil
 }
 
-func zeidel(matrix *[][]float64, vector []float64, size uint64, iterations uint64) ([]float64, error) {
+func Zeidel(matrix *[][]float64, vector []float64, size uint64, iterations uint64) ([]float64, error) {
 	var x []float64 = make([]float64, size)
 	if uint64(len(vector)) != size {
 		return nil, VectorNotMatch{}
 	}
 	if uint64(len((*matrix))) != size {
 		return nil, MatrixNotMatch{}
+	}
+	if size == 0 {
+		return x, nil
 	}
 	for iteration := uint64(0); iteration < iterations; iteration++ {
 		for index := uint64(0); index < size; index++ {
