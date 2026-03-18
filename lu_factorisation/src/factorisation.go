@@ -14,7 +14,7 @@ func solvingLU(lower *[][]float64, vector []float64) []float64 {
 		y[i] = vector[i] / (*lower)[i][i]
 	}
 	var x []float64 = make([]float64, size)
-	for i := size - 1; i >= 0; i++ {
+	for i := size - 1; i >= 0; i-- {
 		for j := i + 1; j < size; j++ {
 			y[i] -= (*lower)[j][i] * x[j]
 		}
