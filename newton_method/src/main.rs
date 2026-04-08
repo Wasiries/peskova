@@ -1,9 +1,9 @@
 fn f(x: f64) -> f64 {
-    return x.powf(4.0) + 8.0 * x.powf(2.0) + 8.0;
+    return x.powf(3.0) - x - 2.0;
 }
 
 fn df(x: f64) -> f64 {
-    return 4.0 * x.powf(3.0) + 16.0 * x;
+    return 3.0 * x.powf(2.0) - 1.0;
 }
 
 
